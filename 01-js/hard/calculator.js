@@ -16,6 +16,77 @@
   Once you've implemented the logic, test your code by running
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+    this.result = 0
+  }
+
+  add(n) {
+    this.result = this.result + n
+  }
+
+  subtract(n) {
+    this.result = this.result - n
+  }
+
+  multiply(n) {
+    this.result = this.result * n
+  }
+
+  divide(n) {
+    if (n === 0) {
+      throw new Error("Division by Zero Not Allowed")
+    } else {
+      this.result = this.result / n
+    }
+  }
+
+  clear(n) {
+    this.result = 0
+  }
+
+  getResult() {
+    return this.result
+  }
+
+  itop(str) {
+
+  }
+
+
+
+  prec(c) {
+    if (c === '*' || c === '/') {
+      return 2
+    } else if (c === '+' || c === '-') {
+      return 1
+    }
+  }
+
+  operation(a, b, op) {
+    if (op === '+') {
+      return a + b
+    }
+    else if (op === '-') {
+      return a - b
+    }
+    else if (op === '*') {
+      return a * b
+    }
+    else if (op === '/') {
+      return a / b
+    }
+  }
+
+  calculate(str) {
+    return eval(str)
+  }
+}
+
+const a = new Calculator()
+let b = a.calculate('2 + 3 * 4')
+console.log(b)
 
 module.exports = Calculator;
+
+
